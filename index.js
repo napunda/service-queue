@@ -1,5 +1,5 @@
-import express from "express";
-import routes from "./routes.mjs";
+const express = require("express")
+const routes = require("./routes.js")
 
 const app = express();
 

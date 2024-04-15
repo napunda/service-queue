@@ -1,7 +1,6 @@
-import { FileModel } from "../models/FileModel.mjs";
-import path from 'path';
-
-export const FileController = {
+const FileModel = require("../models/FileModel.js")
+const path = require("path")
+const FileController = {
     getFileById: (req, res) => {
         const fileId = req.params.uuid;
 
@@ -37,3 +36,4 @@ export const FileController = {
         });
     }
 };
+module.exports =  FileController;

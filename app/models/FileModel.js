@@ -1,6 +1,6 @@
-import { connection } from "../../config/db.connection.mjs";
+const connection = require("../../config/db.connection.js")
 
-export const FileModel = {
+const FileModel = {
     findById: (uuid, callback) => {
         const sql = 'SELECT * FROM files_compress_queues WHERE id = ?';
         connection.query(sql, [uuid], callback);
@@ -10,3 +10,5 @@ export const FileModel = {
         connection.query(sql, [statusId, id], callback);
     }
 };
+
+module.exports = FileModel;
