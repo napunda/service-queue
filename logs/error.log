@@ -1,0 +1,5 @@
+Erro ao atualizar o banco de dados: TypeError: Cannot read properties of undefined (reading 'then')
+    at WriteStream.<anonymous> [90m(/home/napunda/service-queue/services/[39mCompressService.js:54:51[90m)[39m
+[90m    at WriteStream.emit (node:events:518:28)[39m
+[90m    at emitCloseNT (node:internal/streams/destroy:147:10)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)[39m
