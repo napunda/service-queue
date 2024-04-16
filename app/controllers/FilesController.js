@@ -28,7 +28,6 @@ const FileController = {
                 }
                 try {
                     await FileModel.updateStatus(fileId, 3);
-                    console.log('Status do arquivo atualizado para baixado');
                 } catch (updateErr) {
                     console.error('Erro ao atualizar o status do arquivo:', updateErr);
                 }
