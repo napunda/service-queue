@@ -4,9 +4,9 @@ const path = require('path');
 const FileModel = require("../app/models/FileModel");
 const axios = require('axios')
 
-const errorLogPath = path.join(__dirname, '..', 'logs', 'error.log');
-const errorLogStream = fs.createWriteStream(errorLogPath, { flags: 'a' });
-process.stderr.write = errorLogStream.write.bind(errorLogStream);
+///const errorLogPath = path.join(__dirname, '..', 'logs', 'error.log');
+//const errorLogStream = fs.createWriteStream(errorLogPath, { flags: 'a' });
+//process.stderr.write = errorLogStream.write.bind(errorLogStream);
 
 const startTime = new Date();
 FileModel.findOldestOne(async (err, result) => {
@@ -20,10 +20,11 @@ FileModel.findOldestOne(async (err, result) => {
     process.exit();
   }
 
-  const oldestRecord = result[0];  
+  const oldestRecord = result[0];
   await FileModel.updateStatus(oldestRecord.id, 2);
 
-  const remoteFolderPath = path.join(__dirname, '..', '..', 'ftp', oldestRecord.remote_path);
+  //const remoteFolderPath = path.join(__dirname, '..', '..', 'ftp', oldestRecord.remote_path);
+  const remoteFolderPath = `/home/fileserver/ftp/nuvem/xml/${oldestRecord.remote_path}`;
   const localDirectory = path.join(__dirname, '..', 'storage', 'zip-files');
   if (!fs.existsSync(localDirectory)) {
     fs.mkdirSync(localDirectory, { recursive: true });

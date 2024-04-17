@@ -1,1 +1,4 @@
 node_modules
+services/run_compress_service.sh
+services/service_log.log
+storage/zip-files/*
